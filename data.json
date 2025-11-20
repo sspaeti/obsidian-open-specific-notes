@@ -1,0 +1,14 @@
+{
+  "specificNotes": [
+    {
+      "id": "open-todos",
+      "name": "Open My Todos",
+      "filePath": "🌿 Projects/My Todos.md"
+    },
+    {
+      "id": "daily-journal",
+      "name": "Open Daily Journal",
+      "filePath": "⚛️ Areas/📓 Journal/Dailies/_Daily (Thoughts On).md"
+    }
+  ]
+}
