@@ -3,6 +3,8 @@
 A simple Obsidian plugin to quickly open specific notes with custom commands or a vim shortcut (I use `<space><space>` to open my todo). 
 Works great for frequently accessed notes like todos, journals, or project files.
 
+![settings](images/settings-page.webp)
+
 ## Features
 
 - Instantly open predefined notes with keyboard shortcuts
