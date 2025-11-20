@@ -1,6 +1,7 @@
 # Open Specific Notes in Obsidian
 
-A simple Obsidian plugin to quickly open specific notes with custom commands. Perfect for frequently accessed notes like todos, journals, or project files.
+A simple Obsidian plugin to quickly open specific notes with custom commands or a vim shortcut (I use `<space><space>` to open my todo). 
+Works great for frequently accessed notes like todos, journals, or project files.
 
 ## Features
 
