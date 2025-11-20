@@ -86,5 +86,11 @@ cd obsidian-open-specific-notes
 cp main.js manifest.json /path/to/vault/.obsidian/plugins/open-specific-notes/
 ```
 
-## More
-- More info on my note on [Vimrc for Obsidian](https://www.ssp.sh/brain/vimrc-for-obsidian/)
+
+## Neovim
+I do the same in Neovim, incase you use that too. Check out the confis and same settings that opens a floating window for my todos with `<space><space>` too - in case you want, see [here](https://github.com/sspaeti/dotfiles/blob/170c1d1462b89e2f4718617c4a978e9ef91b8553/nvim/.config/nvim/lua/sspaeti/plugins_custom/todo_float.lua):
+
+![](images/neovim.webp)
+
+
+Find more info on my note at [Vimrc for Obsidian](https://www.ssp.sh/brain/vimrc-for-obsidian/).
