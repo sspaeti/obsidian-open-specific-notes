@@ -94,3 +94,8 @@ I do the same in Neovim, incase you use that too. Check out the confis and same 
 
 
 Find more info on my note at [Vimrc for Obsidian](https://www.ssp.sh/brain/vimrc-for-obsidian/).
+
+---
+
+
+*Also check out my other Plugin: [Obsidian Trouble Tags](https://github.com/sspaeti/obsidian-trouble-tags)*
