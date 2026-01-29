@@ -93,7 +93,7 @@ I do the same in Neovim, incase you use that too. Check out the confis and same 
 ![](images/neovim.webp)
 
 
-Find more info on my note at [Vimrc for Obsidian](https://www.ssp.sh/brain/vimrc-for-obsidian/).
+Find more info on my note at [Obsidian Plugins](https://www.ssp.sh/brain/obsidian-plugins#open-specific-files).
 
 ---
 
