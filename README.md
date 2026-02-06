@@ -61,7 +61,7 @@ Add to your `.obsidian/.vimrc`:
 
 ```vim
 " Open My Todos with <Space><Space>
-exmap open_todos obcommand obsidian-open-specific-notes:open-todos
+exmap open_todos obcommand open-specific-notes:open-todos
 nmap <Space><Space> :open_todos<CR>
 ```
 

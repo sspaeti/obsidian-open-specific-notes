@@ -1,10 +1,10 @@
 {
-  "id": "obsidian-open-specific-notes",
+  "id": "open-specific-notes",
   "name": "Open Specific Notes",
   "version": "1.0.0",
   "minAppVersion": "0.15.0",
-  "description": "Quickly open specific notes with custom commands in Obsidian",
+  "description": "Open specific notes instantly with custom commands and keyboard shortcuts.",
   "author": "Simon Späti",
-  "authorUrl": "github.com/sspaeti/obsidian-open-specific-notes",
+	"authorUrl": "https://ssp.sh",
   "isDesktopOnly": false
 }

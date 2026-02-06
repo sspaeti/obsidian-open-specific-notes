@@ -1,1 +1,24 @@
-/* Optional: Add custom styles for your plugin here */
+.osn-callout {
+	padding: 10px;
+	margin-bottom: 15px;
+	background-color: var(--background-secondary);
+	border-radius: 5px;
+}
+
+.osn-callout-title {
+	font-weight: var(--font-semibold);
+}
+
+.osn-note-item {
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 5px;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+.osn-vim-info {
+	padding: 10px;
+	background-color: var(--background-secondary);
+	border-radius: 5px;
+	font-family: var(--font-monospace);
+}

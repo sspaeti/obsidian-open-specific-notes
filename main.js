@@ -13,8 +13,6 @@ const DEFAULT_SETTINGS = {
 
 module.exports = class OpenSpecificNotesPlugin extends Plugin {
     async onload() {
-        console.log('Loading Open Specific Notes plugin');
-
         // Load settings
         await this.loadSettings();
 
@@ -62,7 +60,6 @@ module.exports = class OpenSpecificNotesPlugin extends Plugin {
     }
 
     onunload() {
-        console.log('Unloading Open Specific Notes plugin');
     }
 };
 
@@ -76,29 +73,22 @@ class OpenSpecificNotesSettingTab extends PluginSettingTab {
         const { containerEl } = this;
         containerEl.empty();
 
-        containerEl.createEl('h2', { text: 'Open Specific Notes Settings' });
-
         containerEl.createEl('p', {
             text: 'Configure which notes you want to quickly access. After making changes, reload Obsidian to apply.',
             cls: 'setting-item-description'
         });
 
-        const warningEl = containerEl.createDiv();
-        warningEl.style.padding = '10px';
-        warningEl.style.marginBottom = '15px';
-        warningEl.style.backgroundColor = 'var(--background-secondary)';
-        warningEl.style.borderRadius = '5px';
-        warningEl.innerHTML = '⚠️ <strong>Note:</strong> Restart Obsidian after adding/removing notes to see them in the command palette.';
+        const warningEl = containerEl.createDiv({ cls: 'osn-callout' });
+        warningEl.createSpan({ text: 'Note:', cls: 'osn-callout-title' });
+        warningEl.createSpan({ text: ' Restart Obsidian after adding/removing notes to see them in the command palette.' });
 
         // Display existing notes
         this.plugin.settings.specificNotes.forEach((note, index) => {
-            const noteContainer = containerEl.createDiv('specific-note-item');
-            noteContainer.style.border = '1px solid var(--background-modifier-border)';
-            noteContainer.style.borderRadius = '5px';
-            noteContainer.style.padding = '10px';
-            noteContainer.style.marginBottom = '10px';
+            const noteContainer = containerEl.createDiv({ cls: 'osn-note-item' });
 
-            noteContainer.createEl('h3', { text: `Note ${index + 1}` });
+            new Setting(noteContainer)
+                .setName(`Note ${index + 1}`)
+                .setHeading();
 
             new Setting(noteContainer)
                 .setName('Command ID')
@@ -112,7 +102,7 @@ class OpenSpecificNotesSettingTab extends PluginSettingTab {
                     }));
 
             new Setting(noteContainer)
-                .setName('Command Name')
+                .setName('Command name')
                 .setDesc('Name shown in command palette')
                 .addText(text => text
                     .setPlaceholder('Open My Todos')
@@ -123,7 +113,7 @@ class OpenSpecificNotesSettingTab extends PluginSettingTab {
                     }));
 
             new Setting(noteContainer)
-                .setName('File Path')
+                .setName('File path')
                 .setDesc('Path relative to vault root')
                 .addText(text => text
                     .setPlaceholder('Projects/My Todos.md')
@@ -148,7 +138,7 @@ class OpenSpecificNotesSettingTab extends PluginSettingTab {
 
         // Add new note button
         new Setting(containerEl)
-            .setName('Add New Note')
+            .setName('Add new note')
             .setDesc('Add a new note configuration')
             .addButton(button => button
                 .setButtonText('Add Note')
@@ -164,16 +154,23 @@ class OpenSpecificNotesSettingTab extends PluginSettingTab {
                 }));
 
         // Vim mode usage info
-        containerEl.createEl('h3', { text: 'Vim Mode Usage' });
-        const vimInfo = containerEl.createEl('div');
-        vimInfo.style.padding = '10px';
-        vimInfo.style.backgroundColor = 'var(--background-secondary)';
-        vimInfo.style.borderRadius = '5px';
-        vimInfo.style.fontFamily = 'monospace';
-        vimInfo.innerHTML =
-            'Add to your <code>.vimrc</code>:<br><br>' +
-            '<code>exmap open_todos obcommand obsidian-open-specific-notes:open-todos</code><br>' +
-            '<code>nmap &lt;Space&gt;&lt;Space&gt; :open_todos&lt;CR&gt;</code><br><br>' +
-            'Replace <code>open-todos</code> with your Command ID.';
+        new Setting(containerEl)
+            .setName('Vim mode usage')
+            .setHeading();
+
+        const vimInfo = containerEl.createDiv({ cls: 'osn-vim-info' });
+        vimInfo.createSpan({ text: 'Add to your ' });
+        vimInfo.createEl('code', { text: '.vimrc' });
+        vimInfo.createSpan({ text: ':' });
+        vimInfo.createEl('br');
+        vimInfo.createEl('br');
+        vimInfo.createEl('code', { text: 'exmap open_todos obcommand open-specific-notes:open-todos' });
+        vimInfo.createEl('br');
+        vimInfo.createEl('code', { text: 'nmap <Space><Space> :open_todos' });
+        vimInfo.createEl('br');
+        vimInfo.createEl('br');
+        vimInfo.createSpan({ text: 'Replace ' });
+        vimInfo.createEl('code', { text: 'open-todos' });
+        vimInfo.createSpan({ text: ' with your Command ID.' });
     }
 }
